@@ -1,0 +1,6 @@
+/node_modules/*
+.vscode
+dist
+src/images
+src/mock
+src/vendor

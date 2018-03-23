@@ -1,0 +1,7 @@
+.vscode
+dist
+node_modules
+npm-debug.log
+src/category/*/*.css
+src/components/*/css
+package-lock.json
