@@ -29,11 +29,8 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^5.5.8",
-    "babel-loader": "^5.4.2",
-    "babel-preset-es2016": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
+    "autoprefixer": "^8.2.0",
+    "babel-loader": "^7.1.4",
     "css-loader": "^0.14.5",
     "eslint": "^4.19.1",
     "jsx-loader": "^0.13.2",
