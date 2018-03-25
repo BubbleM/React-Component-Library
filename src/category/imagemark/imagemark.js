@@ -1,8 +1,5 @@
-/* 
-  ImageMark项目入口文件
-*/
 'use strict';
-import {Component} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import SildeShow from './../../components/slideshow/js/slideshow';
 
