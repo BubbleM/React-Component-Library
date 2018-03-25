@@ -26,13 +26,13 @@ if (cateName == true) {
 
 module.exports = {
   entry: entryName, //类别入口文件
-    output: {
-        path: __dirname + '/dist/' + (cateName != true ? cateName : ""), //打包后的文件存放的地方
-        filename: cateName != true ? cateName + '.js' : '[name].js' //打包后输出文件的文件名
-    },
+  output: {
+      path: __dirname + '/dist/' + (cateName != true ? cateName : ""), //打包后的文件存放的地方
+      filename: cateName != true ? cateName + '.js' : '[name].js' //打包后输出文件的文件名
+  },
   module: {
     rules: [
-      { test: /.(js|jsx)$/, use: 'babel-loader', include: /src/, exclude: /node_modules/ },
+      { test: /.(js|jsx)$/, use: ['babel-loader','eslint-loader'], include: /src/, exclude: /node_modules/ },
       { test: /.css$/, use: "css!postcss" },
       { test: /.scss$/, use: "css!postcss!sass!sass-resources-loader" },
       { test: /.(png|jpg)$/, use: 'url?limit=10240' }
