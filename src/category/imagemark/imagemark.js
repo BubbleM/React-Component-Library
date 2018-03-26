@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import SildeShow from './../../components/slideshow/js/slideshow';
-
+import './imagemark.scss';
 class ImageMark extends Component{
   constructor(props){
     super(props);
@@ -11,7 +11,7 @@ class ImageMark extends Component{
   render(){
     return(
       <div className = 'imageMark-wrap'>
-        <SildeShow/>
+        <SildeShow data = {datainfo.images} info = {testText}/>
       </div>
     )
   }

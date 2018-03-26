@@ -2,6 +2,7 @@
 var webpack = require('webpack');
 var fs = require('fs');
 var optimist = require('optimist'); // 命令行解析库
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var cateName = optimist.argv.env.cate || true;
 var entryName = "", cssName = "", entryObj = {};
 if (cateName == true) {
@@ -32,15 +33,39 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /.(js|jsx)$/, use: ['babel-loader','eslint-loader'], include: /src/, exclude: /node_modules/ },
-      { test: /.css$/, use: "css!postcss" },
-      { test: /.scss$/, use: "css!postcss!sass!sass-resources-loader" },
-      { test: /.(png|jpg)$/, use: 'url?limit=10240' }
+      { test: /\.(js|jsx)$/, use: ['babel-loader','eslint-loader'], include: /src/, exclude: /node_modules/ },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']},
+      /* { test: /\.(css|scss)$/, use: [       
+         MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 2
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [
+              require('autoprefixer')
+            ]
+          }
+        },
+        {
+          loader: 'sass-loader'
+        }
+      ]}, */
+      { test: /\.(png|jpg)$/, use: 'url?limit=10240' }
     ]
   },
   devServer: {
     contentBase: './src',
     port: 9000,
     compress: true
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: cssName
+    })
+  ]
 }
