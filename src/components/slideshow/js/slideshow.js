@@ -32,7 +32,7 @@ class SlideShow extends Base{
     let childWidth = 100 / imgs.length + "%";
     return (
       <div className = "slideshow-wrap">
-        <ul ref = "el" style = {{width: parentWidth}}>
+        <ul ref = "el" style = {{width: parentWidth}} onMouseOver = {self.pausePlay.bind(self)} onMouseOut = {self.autoPlay.bind(self)}>
           { this.renderImgs(imgs, childWidth) }
         </ul>
         <ol className = "slider-dots-wrap">
@@ -60,9 +60,14 @@ class SlideShow extends Base{
     domNode.style.left = '-' + (_n) * 100 + '%';
     self.setState({active: _n});
   }
+  autoPlay(){
+    this.timer = setInterval(() => {this.turn(1);},3000);
+  }
+  pausePlay(){
+    clearInterval(this.timer);
+  }
   componentDidMount(){
-    let self = this;
-    setInterval(function(){ self.turn(1); },3000)
+    this.autoPlay();
   }
 }
 module.exports = SlideShow;
