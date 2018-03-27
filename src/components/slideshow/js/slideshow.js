@@ -20,6 +20,10 @@ class SlideShow extends Base{
       )
     })
   }
+  handleDotClick(i){
+    var num = i - this.state.active;
+    this.turn(num);
+  }
   render(){
     let self = this;
     let { imgs } = self.props;
@@ -34,7 +38,7 @@ class SlideShow extends Base{
         <ol className = "slider-dots-wrap">
           {
             imgs.map((item, index) => {
-              return (<li data-index = {index}  className = {ClassName({"slider-dots-item": true, "current": active === index})}></li>)
+              return (<li data-index = {index} onClick = {self.handleDotClick.bind(self,index)}  className = {ClassName({"slider-dots-item": true, "current": active === index})}></li>)
             })
           }
         </ol>
