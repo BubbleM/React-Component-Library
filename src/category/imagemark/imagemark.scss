@@ -1,7 +1,12 @@
 html {
   overflow: hidden;
 }
-body, ul {
+body, ul, ol {
   margin: 0;
   padding: 0;
+}
+.imageMark-wrap {
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
 }

@@ -43,8 +43,8 @@ class SlideShow extends Base{
     // flag(true)表示默认从左边往右轮播
     let len = self.props.imgs.length, i = 0, flag = true;
     setInterval(function(){
-      if((i == len - 1 && flag != false) || (i == 0 && flag != true)) { flag = !flag; }
-      domNode.style.left = '-' + i * 100 + '%';
+      if((i == len - 2 && flag != false) || (i == -1 && flag != true)) { flag = !flag; }
+      domNode.style.left = '-' + (i+1) * 100 + '%';
       flag ? i++ : i--;
     },3000)
   }
