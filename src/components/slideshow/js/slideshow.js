@@ -8,6 +8,7 @@ class SlideShow extends Base{
   constructor(props){
     super(props);
     Base.extend(this.state, {});
+    this.state.active = 0;
   }
   renderImgs(imgs, width){
     let self = this;
@@ -22,6 +23,7 @@ class SlideShow extends Base{
   render(){
     let self = this;
     let { imgs } = self.props;
+    let { active } = self.state;
     let parentWidth = 100 * imgs.length + "%";
     let childWidth = 100 / imgs.length + "%";
     return (
@@ -31,8 +33,8 @@ class SlideShow extends Base{
         </ul>
         <ol className = "slider-dots-wrap">
           {
-            imgs.map(() => {
-              return (<li className = "slider-dots-item"></li>)
+            imgs.map((item, index) => {
+              return (<li data-index = {index}  className = {ClassName({"slider-dots-item": true, "current": active === index})}></li>)
             })
           }
         </ol>
@@ -41,17 +43,22 @@ class SlideShow extends Base{
       </div>
     )
   }
-  componentDidMount(){
+  /* 背景图滚动到第n张，相对于当前active */
+  turn(n){
     let self = this;
     let domNode = self.refs.el;
-    console.log(domNode.children)
-    // flag(true)表示默认从左边往右轮播
-    let len = self.props.imgs.length, i = 0, flag = true;
-    setInterval(function(){
-      if((i == len - 2 && flag != false) || (i == -1 && flag != true)) { flag = !flag; }
-      domNode.style.left = '-' + (i+1) * 100 + '%';
-      flag ? i++ : i--;
-    },3000)
+    let { active } = self.state;
+    let len = self.props.imgs.length;
+    
+    let _n = active + n; // 正常滚动到前2张
+    if(_n < 0){ _n += len; } // 如果n<0
+    if(_n >= len){ _n -= len; } // 如果n>len
+    domNode.style.left = '-' + (_n) * 100 + '%';
+    self.setState({active: _n});
+  }
+  componentDidMount(){
+    let self = this;
+    setInterval(function(){ self.turn(1); },3000)
   }
 }
 module.exports = SlideShow;
