@@ -16,21 +16,21 @@
     }
   }
   .slider-dots-wrap {
-    width: 88px;
-    height: 22px;
+    width: pxToRem(165px);
+    height: pxToRem(40px);
     position: absolute;
-    bottom: 18px;
+    bottom: pxToRem(18px);
     left: 50%;
-    margin-left: -64px;
-    padding: 0 20px;
-    border-radius: 11px;
+    margin-left: pxToRem(-60px);
+    padding: 0 pxToRem(20px);
+    border-radius: pxToRem(20px);
     background: rgba(0,0,0,7);
     .slider-dots-item {
-      width: 12px;
-			height: 12px;
+      width: pxToRem(20px);
+			height: pxToRem(20px);
       float: left;
 			border-radius: 50%;
-			margin:5px;
+			margin: pxToRem(10px) pxToRem(10px);
       cursor: pointer;
       list-style-type: none;
       background:rgba(255,255,255,.7);

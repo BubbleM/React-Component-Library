@@ -34,7 +34,16 @@ module.exports = {
   module: {
     rules: [
       { test: /\.(js|jsx)$/, use: ['babel-loader','eslint-loader'], include: /src/, exclude: /node_modules/ },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']},
+      { test: /\.scss$/, use: [
+        'style-loader', 'css-loader', 'sass-loader',
+        {
+          loader: 'sass-resources-loader',
+          options: {
+            resources: './src/skin/base.scss'
+          }
+
+        }
+      ]},
       /* { test: /\.(css|scss)$/, use: [       
          MiniCssExtractPlugin.loader,
         {
