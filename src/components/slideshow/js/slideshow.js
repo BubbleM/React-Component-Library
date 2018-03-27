@@ -42,8 +42,8 @@ class SlideShow extends Base{
             })
           }
         </ol>
-        <span className = "left"></span>
-        <span className = "right"></span>
+        <span className = "left" onClick = {self.turn.bind(self, -1)}></span>
+        <span className = "right" onClick = {self.turn.bind(self, 1)}></span>
       </div>
     )
   }

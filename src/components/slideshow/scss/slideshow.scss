@@ -39,4 +39,18 @@
       background: rgba(255,255,255,1);
     }
   }
+  span {
+    width: pxToRem(60px);
+    height: pxToRem(60px);
+    background: pink;
+    position: absolute;
+    top:50%;
+    cursor: pointer;
+  }
+  span.left {
+    left: pxToRem(60px);
+  }
+  span.right {
+    right: pxToRem(60px);
+  }
 }
