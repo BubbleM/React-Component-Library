@@ -25,12 +25,16 @@ class SlideShow extends Base{
     let parentWidth = 100 * imgs.length + "%";
     let childWidth = 100 / imgs.length + "%";
     return (
-      <div ref = "el" className = "slideshow-wrap">
-        <ul style = {{width: parentWidth}}>
+      <div className = "slideshow-wrap">
+        <ul ref = "el" style = {{width: parentWidth}}>
           { this.renderImgs(imgs, childWidth) }
         </ul>
-        <ol>
-          <li>icon01</li>
+        <ol className = "slider-dots-wrap">
+          {
+            imgs.map(() => {
+              return (<li className = "slider-dots-item"></li>)
+            })
+          }
         </ol>
         <span className = "left"></span>
         <span className = "right"></span>
@@ -40,6 +44,7 @@ class SlideShow extends Base{
   componentDidMount(){
     let self = this;
     let domNode = self.refs.el;
+    console.log(domNode.children)
     // flag(true)表示默认从左边往右轮播
     let len = self.props.imgs.length, i = 0, flag = true;
     setInterval(function(){
