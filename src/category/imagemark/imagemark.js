@@ -11,7 +11,7 @@ class ImageMark extends Component{
   render(){
     return(
       <div className = 'imageMark-wrap'>
-        <SildeShow data = {datainfo.images} info = {testText}/>
+        <SildeShow imgs = {datainfo.images}/>
       </div>
     )
   }
