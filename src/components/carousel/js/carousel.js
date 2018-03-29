@@ -1,10 +1,10 @@
 'use strict';
-import './../scss/slideshow.scss';
+import './../scss/carousel.scss';
 import React from 'react';
 import Base from './../../base/js/base';
 import ClassName from 'classnames';
 
-class SlideShow extends Base{
+class Carousel extends Base{
   constructor(props){
     super(props);
     Base.extend(this.state, {});
@@ -70,4 +70,4 @@ class SlideShow extends Base{
     this.autoPlay();
   }
 }
-module.exports = SlideShow;
+module.exports = Carousel;

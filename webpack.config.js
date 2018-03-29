@@ -1,10 +1,20 @@
 'use strict';
 var webpack = require('webpack');
 var fs = require('fs');
+var glob = require("glob");
 var optimist = require('optimist'); // 命令行解析库
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var cateName = optimist.argv.env.cate || true;
 var entryName = "", cssName = "", entryObj = {};
+
+var packComponent = function(){
+  let files = glob.sync('./src/components/**/showpage/*.js');
+  files.forEach((file, index) => {
+    let fileName = file.split('/showpage/')[1].split('.js')[0];
+    entryObj['component/' + fileName] = __dirname + '/src/components/' + fileName + '/showpage/' + fileName + '.js';
+  })
+}
+packComponent(); // 每次自动打包独立组件
 if (cateName == true) {
   fs.readdirSync('./src/category').forEach(function(cateName, index) {
       //cateName/cateName指定输出路径为entryname
@@ -33,7 +43,7 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, use: ['babel-loader','eslint-loader'], include: /src/, exclude: /node_modules/ },
+      { test: /\.(js|jsx)$/, use: ['babel-loader','eslint-loader'], exclude: /node_modules/ },
       { test: /\.scss$/, use: [
         'style-loader', 'css-loader', 'sass-loader',
         {
@@ -41,7 +51,6 @@ module.exports = {
           options: {
             resources: './src/skin/base.scss'
           }
-
         }
       ]},
       /* { test: /\.(css|scss)$/, use: [       
@@ -64,7 +73,7 @@ module.exports = {
           loader: 'sass-loader'
         }
       ]}, */
-      { test: /\.(png|jpg)$/, use: 'url?limit=10240' }
+      // { test: /\.(png|jpg)$/, use: 'url?limit=10240' }
     ]
   },
   devServer: {
