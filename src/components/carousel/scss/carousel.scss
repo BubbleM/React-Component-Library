@@ -16,15 +16,15 @@
     }
   }
   .slider-dots-wrap {
-    width: pxToRem(165px);
+    width: pxToRem(166px);
     height: pxToRem(40px);
     position: absolute;
     bottom: pxToRem(18px);
     left: 50%;
-    margin-left: pxToRem(-60px);
+    margin-left: pxToRem(-83px);
     padding: 0 pxToRem(20px);
     border-radius: pxToRem(20px);
-    background: rgba(0,0,0,7);
+    background: rgba(0,0,0,0.7);
     .slider-dots-item {
       width: pxToRem(20px);
 			height: pxToRem(20px);
@@ -42,9 +42,10 @@
   .arrow {
     width: pxToRem(60px);
     height: pxToRem(60px);
-    // background: pink;
     position: absolute;
     top:50%;
+    margin-top: pxToRem(-30px);
+    opacity: 0.4;
     cursor: pointer;
   }
   .leftArrow {
