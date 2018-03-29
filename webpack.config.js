@@ -39,8 +39,9 @@ module.exports = {
   entry: entryName, //类别入口文件
   output: {
       path: __dirname + '/dist/' + (cateName != true ? cateName : ""), //打包后的文件存放的地方
-      filename: cateName != true ? cateName + '.js' : '[name].js' //打包后输出文件的文件名
-  },
+      filename: cateName != true ? cateName + '.js' : '[name].js', //打包后输出文件的文件名
+      publicPath: '/assets/'
+    },
   module: {
     rules: [
       { test: /\.(js|jsx)$/, use: ['babel-loader','eslint-loader'], exclude: /node_modules/ },
@@ -73,7 +74,7 @@ module.exports = {
           loader: 'sass-loader'
         }
       ]}, */
-      // { test: /\.(png|jpg)$/, use: 'url?limit=10240' }
+      { test: /\.(png|jpg)$/, use: 'url-loader?limit=10240' }
     ]
   },
   devServer: {

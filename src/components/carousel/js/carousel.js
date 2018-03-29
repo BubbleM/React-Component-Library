@@ -42,8 +42,8 @@ class Carousel extends Base{
             })
           }
         </ol>
-        <span className = "left" onClick = {self.turn.bind(self, -1)}></span>
-        <span className = "right" onClick = {self.turn.bind(self, 1)}></span>
+        <div className = "arrow leftArrow" onClick = {self.turn.bind(self, -1)}></div>
+        <div className = "arrow rightArrow" onClick = {self.turn.bind(self, 1)}></div>
       </div>
     )
   }

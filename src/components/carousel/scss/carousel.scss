@@ -39,18 +39,24 @@
       background: rgba(255,255,255,1);
     }
   }
-  span {
+  .arrow {
     width: pxToRem(60px);
     height: pxToRem(60px);
-    background: pink;
+    // background: pink;
     position: absolute;
     top:50%;
     cursor: pointer;
   }
-  span.left {
+  .leftArrow {
     left: pxToRem(60px);
+    background-image: url('./../../../images/icon/round_left_fill.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  span.right {
+  .rightArrow {
     right: pxToRem(60px);
+    background-image: url('./../../../images/icon/round_right_fill.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
