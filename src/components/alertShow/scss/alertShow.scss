@@ -1,0 +1,56 @@
+@import "./../../../skin/base.scss";
+.alertShow{
+  position: fixed;
+  left:0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  clear: left;
+  .alertMark{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .closeIcon{
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background: #ffffff;
+    margin-top: -24px;
+    margin-right: -36px;
+    float: right;
+    line-height: 25px;
+    cursor: pointer;
+  }
+  .alertMain{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 450px;
+    height: 340px;
+    background: #FAFAFC;
+    text-align: center;
+    font-size: pxToRem(15px);
+    border-radius: pxToRem(6px);
+    text-align: center;
+    padding: 10px 25px 5px 30px;
+    .sign_header{
+      width: 100%;
+      background: rgba(7, 17, 27, 0.75);
+      padding: 15px 0;
+      margin-bottom: 35px;
+      .title{
+        font-size: 17px;
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+  }
+}

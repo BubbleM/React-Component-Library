@@ -1,0 +1,97 @@
+@import "./../../../skin/global.css"
+.header 
+  color: #fff
+  position: fixed
+  top: 0
+  min-width: 100%
+  height: 100px
+  background: rgba(7, 17, 27, 0.75)
+  z-index: 99
+  .page-logo
+    width: auto
+    height: 68px
+    max-height: 68px
+    line-height: 68px
+    left: 15px
+    font-size: 25px
+    position: absolute
+    top: 50%
+    margin-top: -34px
+    a 
+      color: #ffffff
+      vertical-align: middle
+      text-decoration: none
+      img
+        width: 50px
+        height: 50px
+  .nav
+    position: absolute
+    left: 450px
+    top: 0
+    height: 100%
+    text-align: center
+    .nav-item:first-child
+      border-left: 1px solid rgba(225, 225, 225,0.3)
+    .nav-item
+      width: 110px
+      height: 100%
+      line-height: 100px // 文字垂直居中
+      border-right: 1px solid rgba(225, 225, 225,0.3)
+      background: url("./../../../images/sub_nav.png") repeat-x
+      display: block
+      list-style-type: none
+      float: left
+      font-size: 18px
+      font-weight: normal
+      a
+        padding: 0px
+        color: #ffffff
+      a:hover, a:focus
+        background-color: rgba(7, 17, 27, 0.25)
+      .bottom-ul
+        position: relative
+        display: none
+        width: 240px
+        height: 105px
+        font-size: 15px
+        background: url("./../../../images/sub_nav.png") repeat-x
+        .left-ul
+          position: absolute
+          left: 0
+          width: 50%
+          li
+            height: 35px
+            line-height: 35px
+            border-right: 1px solid rgba(7,17,27,0.6)
+        .right-ul
+          position: absolute
+          right: 0
+          width: 50%
+          li
+            height: 35px
+            line-height: 35px
+  .login
+    position: absolute
+    right: 0
+    top: 0
+    height: 100%
+    button
+      width: 80px
+      margin: 30px 10px 25px 10px
+      a 
+        color: #ffffff
+@media (max-width: 850px) 
+  .header
+    img 
+      width: 100%
+      opacity: 0.1
+    .nav 
+      left: 0
+      width: 100%
+      .nav-item
+        width: 25%
+        font-weight: bolder
+        font-size: 20px
+    button
+      display: none
+   
